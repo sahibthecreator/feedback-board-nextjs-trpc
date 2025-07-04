@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗂️ Mini Feedback Board — Technical Task
 
-## Getting Started
+Hi! 👋 
+This project demonstrates a simple but production-ready feedback board using **Next.js App Router**, **tRPC**, **Prisma**, **PostgreSQL**, and **Tailwind CSS**.
 
-First, run the development server:
+---
+
+## Features
+
+- Displays a paginated list of feedback posts (title + body)
+- Form to add new feedback
+- Real-time local cache update using tRPC
+- Cursor-based pagination (infinite scroll ready)
+- Brand styling with Tailwind CSS + shadcn
+- Input validation with Zod
+
+
+---
+
+## Local Setup
+
+> **Note:** Please have a **local PostgreSQL database** ready.  
+> Or you can connect to a hosted Postgres if you prefer.
+
+1️⃣ **Clone the repo**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/sahibthecreator/feedback-board-nextjs-trpc.git
+cd feedback-board-nextjs-trpc
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2️⃣ **Install dependencies**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3️⃣ **Configure ```.env```**
+```bash
+touch .env
+```
+```bash
+DATABASE_URL="postgresql://YOUR_USER:YOUR_PASSWORD@localhost:5432/YOUR_DB_NAME"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4️⃣ **Push Prisma schema & generate client**
+```bash
+npx prisma db push
+npx prisma generate
+```
 
-## Learn More
+5️⃣ **Run the dev server**
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Additional Notes
+I used a bit of brand styling to show how this could feel as a natural extension of the Buildscout platform.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+With more time, I’d also:
+* Host a live Postgres DB for easy demo.
+* Add more features: editing, deleting, upvotes, full user auth.
+* Polish design with production-ready theming.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
