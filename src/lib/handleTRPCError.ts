@@ -1,4 +1,3 @@
-// lib/handleTRPCError.ts
 import { toast } from "sonner";
 
 export function handleTRPCError(err: unknown, fallback = "Something went wrong! Please try again") {
